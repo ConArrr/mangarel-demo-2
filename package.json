@@ -21,13 +21,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "yarn lint:es && yarn lint:style",
-    "lint:fix": "yarn lint:es:fix && yarn lint:style:fix",
+    "lint": "yarn lint:es && yarn lint:style && yarn lint:func:es",
+    "lint:fix": "yarn lint:es:fix && yarn lint:style:fix && yarn lint:func:es:fix",
     "lint:es": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:es:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:conflict": "eslint-config-prettier .eslintrc.js",
     "lint:style": "stylelint 'src/**/*.css'",
     "lint:style:fix": "stylelint --fix 'src/**/*.css'",
+    "lint:func:es": "cd functions/ && eslint 'src/**/*.{js,ts}'",
+    "lint:func:es:fix": "cd functions/ && eslint --fix 'src/**/*.{js,ts}'",
     "postinstall": "typesync"
   },
   "eslintConfig": {
@@ -83,5 +85,8 @@
     "src/**/*.css": [
       "stylelint --fix"
     ]
-  }
+  },
+  "functions/src/**/*.{js,ts}": [
+    "cd functions/ && eslint --fix"
+  ]
 }
